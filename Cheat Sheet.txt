@@ -1,0 +1,20 @@
+DHCP Server Labs
+==================
+R1>en
+R1# show ip interface brief
+(R1#sh ip int brief)
+R1#conf t
+R1(config)#ip dhcp excluded-address 10.1.1.1 10.1.1.100
+R1(config)#ip dhcp pool pc
+R1(dhcp-config)#network 10.1.1.0 255.255.255.0
+R1(dhcp-config)#default-router 10.1.1.254
+R1(dhcp-config)#dns-server 10.1.1.254
+R1(dhcp-config)#end
+R1#sh run
+R1#sh ip dhcp binding
+
+Comments
+---------
+DNS - Domain Name Servers are internet's equivalent of a phone book. They maintain a directory of domain names and translate them to IP addressses.
+When you type in a web address, e.g., www.jimsbikes.com, your Internet Service Provider views the DNS associated with the domain name, translates it into a machine friendly IP address (for example 216.168.224.70 is the IP for jimsbikes.com) and directs your Internet connection to the correct website.
+
